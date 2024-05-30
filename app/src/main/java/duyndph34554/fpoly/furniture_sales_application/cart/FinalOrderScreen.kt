@@ -1,4 +1,4 @@
-package duyndph34554.fpoly.furniture_sales_application
+package duyndph34554.fpoly.furniture_sales_application.cart
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -35,11 +35,12 @@ import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.graphics.toColorInt
 import androidx.navigation.NavController
+import duyndph34554.fpoly.furniture_sales_application.custom.CustomButton
+import duyndph34554.fpoly.furniture_sales_application.R
 
 
 class FinalOrderScreen : ComponentActivity() {

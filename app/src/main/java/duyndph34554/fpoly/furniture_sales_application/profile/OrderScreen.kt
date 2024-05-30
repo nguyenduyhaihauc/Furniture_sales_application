@@ -1,4 +1,4 @@
-package duyndph34554.fpoly.furniture_sales_application
+package duyndph34554.fpoly.furniture_sales_application.profile
 
 import androidx.activity.ComponentActivity
 import androidx.compose.foundation.background
@@ -43,6 +43,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.graphics.toColorInt
 import androidx.navigation.NavController
+import duyndph34554.fpoly.furniture_sales_application.custom.CustomButton
+import duyndph34554.fpoly.furniture_sales_application.R
 
 class OrderScreen : ComponentActivity() {
 }

@@ -1,4 +1,4 @@
-package duyndph34554.fpoly.furniture_sales_application
+package duyndph34554.fpoly.furniture_sales_application.custom
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box

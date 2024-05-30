@@ -1,4 +1,4 @@
-package duyndph34554.fpoly.furniture_sales_application
+package duyndph34554.fpoly.furniture_sales_application.screen
 
 import android.widget.Toast
 import androidx.compose.foundation.Image
@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.BasicText
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Divider
 import androidx.compose.material3.Icon
@@ -35,6 +36,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.ParagraphStyle
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.Font
@@ -44,137 +46,14 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.withStyle
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.graphics.toColorInt
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
+import duyndph34554.fpoly.furniture_sales_application.R
 
-@Composable
-fun RegisterScreen(navController : NavController) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(13.dp)
-            .background(Color.White),
-        verticalArrangement = Arrangement.SpaceAround,
-        horizontalAlignment = Alignment.CenterHorizontally,
-    ) {
 
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(70.dp)
-        ) {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.SpaceBetween
-            ) {
-                Divider(
-                    color = Color("#BDBDBD".toColorInt()),
-                    thickness = 2.dp,
-                    modifier = Modifier.width(105.dp)
-                )
-                Image(
-                    painter = painterResource(id = R.drawable.logo),
-                    contentDescription = null,
-                    modifier = Modifier.size(75.dp)
-                )
-                Divider(
-                    color = Color("#BDBDBD".toColorInt()),
-                    thickness = 2.dp,
-                    modifier = Modifier.width(105.dp)
-                )
-            }
-        }
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(50.dp)
-        ) {
-            Text(
-                text = "WelCome",
-                fontSize = 28.sp,
-                fontWeight = FontWeight(700),
-                fontFamily = FontFamily(Font(R.font.gelasio_bold))
-            )
-        }
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(530.dp)
-                .clip(RoundedCornerShape(16.dp))
-                .shadow(elevation = 4.dp, spotColor = colorResource(id = R.color.graySecond))
-        ) {
-
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(15.dp), verticalArrangement = Arrangement.SpaceEvenly,
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                InputRow(title = "Name")
-                InputRow(title = "Email")
-                InputRowPass(title = "Password")
-                InputRowPass(title = "Confirm PassWord")
-
-                Box(
-                    modifier = Modifier
-                        .padding(7.dp)
-                        .width(285.dp)
-                        .height(50.dp)
-                        .clip(RoundedCornerShape(8.dp))
-                        .background(Color(0xFF242424))
-                        .clickable(onClick = {})
-                ) {
-                    Row(
-                        modifier = Modifier.fillMaxSize(),
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.Center
-                    ) {
-                        Text(
-                            text = "SIGN UP",
-                            color = Color.White,
-                            fontFamily = FontFamily(Font(R.font.nunitosans_7pt_condensed_light)),
-                            fontWeight = FontWeight(600),
-                            fontSize = 17.sp
-                        )
-                    }
-                }
-                Text(text = buildAnnotatedString {
-                    withStyle(
-                        style = SpanStyle(
-                            color = Color.Gray,
-                            fontSize = 15.sp,
-                            fontWeight = FontWeight(600),
-                            fontFamily = FontFamily(Font(R.font.nunitosans_7pt_condensed_light))
-                        )
-                    ) {
-                        append("Already have account? ")
-                    }
-                    withStyle(
-                        style = SpanStyle(
-                            color = Color.Black,
-                            fontSize = 15.sp,
-                            fontWeight = FontWeight.Bold,
-                            fontFamily = FontFamily(Font(R.font.nunitosans_7pt_condensed_light))
-                        )
-                    ) {
-                        append("SIGN IN")
-                    }
-                }, modifier = Modifier.clickable { navController.popBackStack() })
-            }
-        }
-        Column {
-
-        }
-    }
-}
-
-//var nav: NavController? = null
+// Login Screen
 //@Preview
 @Composable
 fun LoginScreen(navController : NavController){
@@ -225,7 +104,7 @@ fun LoginScreen(navController : NavController){
         Column(
             modifier = Modifier
                 .background(Color.White)
-                .fillMaxWidth(0.85f)
+                .fillMaxWidth(0.9f)
                 .height(400.dp)
                 .clip(RoundedCornerShape(16.dp))
                 .shadow(elevation = 4.dp, spotColor = colorResource(id = R.color.graySecond)),
@@ -239,7 +118,7 @@ fun LoginScreen(navController : NavController){
                 var username by remember { mutableStateOf("") }
                 var password by remember { mutableStateOf("") }
                 var passwordVisible by remember { mutableStateOf(false) }
-
+//          Email Login
                 Column {
                     Text(
                         text = "Email",
@@ -256,13 +135,16 @@ fun LoginScreen(navController : NavController){
                         modifier = Modifier
                             .fillMaxWidth(),
                         colors = TextFieldDefaults.colors(
-                            focusedContainerColor = Color("#E0E0E0".toColorInt()),
-                            unfocusedContainerColor = Color.White,
-                            disabledContainerColor = Color.Gray,
-                            unfocusedIndicatorColor = Color.Gray,
+                            focusedContainerColor = Color.Transparent,
+                            unfocusedContainerColor = Color.Transparent,
+                            focusedIndicatorColor = Color(0xffE0E0E0),
+                            unfocusedIndicatorColor = Color(0xffE0E0E0),
+                            cursorColor = Color.Black
                         ),
                     )
                 }
+
+//                Password Login
                 Column {
                     Text(
                         text = "PassWord",
@@ -279,10 +161,10 @@ fun LoginScreen(navController : NavController){
                         modifier = Modifier
                             .fillMaxWidth(),
                         colors = TextFieldDefaults.colors(
-                            focusedContainerColor = Color("#E0E0E0".toColorInt()),
-                            unfocusedContainerColor = Color.White,
-                            disabledContainerColor = Color.Gray,
-                            unfocusedIndicatorColor = Color.Gray,
+                            focusedContainerColor = Color.Transparent,
+                            unfocusedContainerColor = Color.Transparent,
+                            focusedIndicatorColor = Color(0xffE0E0E0),
+                            unfocusedIndicatorColor = Color(0xffE0E0E0),
                         ),
                         visualTransformation = if (passwordVisible) VisualTransformation.None else PasswordVisualTransformation(),
                         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
@@ -373,4 +255,42 @@ fun LoginScreen(navController : NavController){
 
         }
     }
+}
+
+// Text Login
+@Composable
+fun StyledText() {
+    val annotatedText = buildAnnotatedString {
+        withStyle(
+            style = ParagraphStyle(
+                lineHeight = 50.sp
+            )
+        ) {
+            withStyle(
+                style = SpanStyle(
+                    color = Color.Gray,
+                    fontSize = 27.sp,
+                    fontWeight = FontWeight(500),
+                    fontFamily = FontFamily(Font(R.font.gelasio_bold))
+                )
+            ) {
+                append("Hello ! \n")
+            }
+            withStyle(
+                style = SpanStyle(
+                    color = Color.Black,
+                    fontSize = 27.sp,
+                    fontWeight = FontWeight(600),
+                    fontFamily = FontFamily(Font(R.font.gelasio_bold))
+                )
+            ) {
+                append("WELCOME BACK")
+            }
+        }
+    }
+
+    BasicText(
+        text = annotatedText,
+        modifier = Modifier.width(300.dp),
+    )
 }
